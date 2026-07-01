@@ -1,0 +1,170 @@
+/**
+ * PHP PrivacyShield — Cookie Consent Banner Widget
+ * =====================================================================
+ * File: public/shield.css
+ *
+ * Standalone stylesheet for the consent banner.
+ * Used when the banner is rendered in the regular DOM (non-Shadow DOM mode).
+ * When using Shadow DOM mode in shield.js, these styles are injected
+ * programmatically and are fully isolated from the host page.
+ * =====================================================================
+ */
+
+/* Consent Banner Container */
+.ps-banner-overlay {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2147483647; /* Maximum z-index */
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+}
+
+.ps-banner {
+    pointer-events: all;
+    background: rgba(10, 14, 26, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    padding: 1.4rem 1.6rem;
+    max-width: 680px;
+    width: 100%;
+    box-shadow:
+        0 0 0 1px rgba(99, 102, 241, 0.2),
+        0 20px 60px rgba(0, 0, 0, 0.6),
+        0 0 40px rgba(99, 102, 241, 0.08);
+    transform: translateY(100px);
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+    will-change: transform, opacity;
+}
+
+.ps-banner.ps-visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.ps-banner-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.6rem;
+}
+
+.ps-banner-icon {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, #6366f1, #7c3aed);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.ps-banner-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #e8eeff;
+    margin: 0;
+}
+
+.ps-banner-subtitle {
+    font-size: 0.70rem;
+    color: rgba(99, 102, 241, 0.8);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.ps-banner-body {
+    font-size: 0.85rem;
+    color: #8892a4;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.ps-banner-body a {
+    color: #818cf8;
+    text-decoration: none;
+}
+
+.ps-banner-body a:hover {
+    text-decoration: underline;
+}
+
+.ps-banner-actions {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.ps-btn {
+    padding: 0.55rem 1.2rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    transition: transform 0.15s, opacity 0.15s;
+    white-space: nowrap;
+}
+
+.ps-btn:active {
+    transform: scale(0.97);
+}
+
+.ps-btn-accept {
+    background: linear-gradient(135deg, #6366f1, #7c3aed);
+    color: white;
+}
+
+.ps-btn-accept:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.ps-btn-reject {
+    background: rgba(255, 255, 255, 0.06);
+    color: #8892a4;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.ps-btn-reject:hover {
+    background: rgba(255, 255, 255, 0.10);
+    color: #e8eeff;
+    transform: translateY(-1px);
+}
+
+.ps-dpdp-badge {
+    margin-left: auto;
+    font-size: 0.68rem;
+    color: rgba(34, 197, 94, 0.7);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+/* Dismiss animation */
+.ps-banner.ps-dismiss {
+    transform: translateY(120px);
+    opacity: 0;
+    transition: transform 0.3s ease-in, opacity 0.25s ease-in;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .ps-banner-overlay { padding: 0.75rem; }
+    .ps-banner { border-radius: 12px; padding: 1.2rem; border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+    .ps-banner-actions { flex-direction: column; }
+    .ps-btn { width: 100%; text-align: center; }
+    .ps-dpdp-badge { margin-left: 0; }
+}

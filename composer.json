@@ -1,0 +1,14 @@
+{
+    "name": "adity/php-privacyshield",
+    "description": "PHP PrivacyShield - DPDP Act 2023 Compliance Platform",
+    "type": "project",
+    "require": {
+        "php": ">=8.1"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Aditya"
+        }
+    ]
+}
