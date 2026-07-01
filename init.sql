@@ -6,12 +6,6 @@
 --   mysql -u root -p < init.sql
 -- =============================================================================
 
-CREATE DATABASE IF NOT EXISTS `privacyshield`
-    CHARACTER SET utf8mb4
-    COLLATE utf8mb4_unicode_ci;
-
-USE `privacyshield`;
-
 -- ─────────────────────────────────────────────────────────────────────────────
 -- TABLE: users
 -- Stores admin/staff accounts for the PrivacyShield dashboard.
