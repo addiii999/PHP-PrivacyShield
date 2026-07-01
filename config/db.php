@@ -43,11 +43,11 @@ function getDBConnection(): PDO
     // Prefer environment variables (set via .env loader, Docker, or server
     // config). Fall back to the constants defined below for local dev only.
     // NEVER commit real credentials to version control.
-    $host     = getenv('DB_HOST')     ?: 'localhost';
+    $host     = getenv('DB_HOST')     ?: 'sql211.infinityfree.com';
     $port     = getenv('DB_PORT')     ?: '3306';
-    $dbName   = getenv('DB_NAME')     ?: 'privacyshield';
-    $username = getenv('DB_USER')     ?: 'ps_user';
-    $password = getenv('DB_PASSWORD') ?: '';
+    $dbName   = getenv('DB_NAME')     ?: 'if0_42315844_PHPPrivacyShield';
+    $username = getenv('DB_USER')     ?: 'if0_42315844';
+    $password = getenv('DB_PASSWORD') ?: 'Aditya6817';
     $charset  = 'utf8mb4';
 
     // ── DSN Construction ──────────────────────────────────────────────────
